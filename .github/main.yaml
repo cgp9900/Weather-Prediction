@@ -60,7 +60,7 @@ jobs:
           black --check . 2>&1
         
         name: Upload pytest test results
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: pytest-results-${{ matrix.python-version }}
           path: junit/pytest-results-${{ matrix.python-version }}.xml
@@ -75,7 +75,7 @@ jobs:
         if: matrix.python-version == 3.9
 
         name: Upload distribution package
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@main
         with:
           name: dist-package-${{ matrix.python-version }}
           path: dist
@@ -92,14 +92,14 @@ jobs:
           name: dist-package-3.9
           path: dist
         name: Publish distribution package to Test PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@main
         with:
           skip_existing: true
           user: __token__
           password: ${{ secrets.test_pypi_password }}
           repository_url: https://test.pypi.org/legacy/
         name: Publish distribution package to PyPI
-        uses: pypa/gh-action-pypi-publish@master
+        uses: pypa/gh-action-pypi-publish@main
         with:
           user: __token__
           password: ${{ secrets.pypi_password }}

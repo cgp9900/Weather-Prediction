@@ -7,4 +7,3 @@ def test_weather():
 
 def test_weather_uppercase():
     assert weather(True) == "WEATHER"
-    

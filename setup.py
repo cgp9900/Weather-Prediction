@@ -25,6 +25,6 @@ setup(
     keywords="weather prediction project",
     license="MIT",
     packages=["weather"],
-    install_requires=[],
+    install_requires=["pandas", "numpy"],
     include_package_data=True,
 )

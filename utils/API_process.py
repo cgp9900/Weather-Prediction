@@ -1,3 +1,7 @@
+import pandas as pd
+import numpy as np
+
+
 def API_process(w_data):
     # Process hourly data. The order of variables needs to be the same as requested.
     hourly = w_data.Hourly()
@@ -28,9 +32,6 @@ def API_process(w_data):
     q1 = hourly_numeric.quantile(0.25, numeric_only=True)
     q3 = hourly_numeric.quantile(0.75, numeric_only=True)
     IQR = q3 - q1
-
-    upper = np.where(hourly_numeric >= (q3 + 1.5 * IQR))[0]
-    lower = np.where(hourly_numeric <= (q1 - 1.5 * IQR))[0]
 
     hourly_numeric[
         (hourly_numeric >= (q3 + 1.5 * IQR)) | (hourly_numeric <= (q1 - 1.5 * IQR))

@@ -35,7 +35,7 @@ def API_process(w_data):
     IQR = q3 - q1
 
     hourly_numeric[
-        (hourly_numeric >= (q3 + 1.5 * IQR)) | (hourly_numeric <= (q1 - 1.5 * IQR)) # pylint: disable=line-too-long
+        (hourly_numeric >= (q3 + 1.5 * IQR)) | (hourly_numeric <= (q1 - 1.5 * IQR))
     ] = np.nan
     hourly_numeric.fillna(method="ffill", inplace=True)
 

@@ -1,9 +1,9 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 def API_process(w_data):
-    # Process hourly data. The order of variables needs to be the same as 
+    # Process hourly data. The order of variables needs to be the same as
     # requested.
     hourly = w_data.Hourly()
     hourly_temperature_2m = hourly.Variables(0).ValuesAsNumpy()
@@ -35,8 +35,7 @@ def API_process(w_data):
     IQR = q3 - q1
 
     hourly_numeric[
-        (hourly_numeric >= (q3 + 1.5 * IQR)) | 
-        (hourly_numeric <= (q1 - 1.5 * IQR))
+        (hourly_numeric >= (q3 + 1.5 * IQR)) | (hourly_numeric <= (q1 - 1.5 * IQR))
     ] = np.nan
     hourly_numeric.fillna(method="ffill", inplace=True)
 

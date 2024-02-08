@@ -13,9 +13,11 @@ iniconfig==2.0.0
 isort==5.13.2
 mccabe==0.7.0
 mypy-extensions==1.0.0
+numpy==1.26.0
 openmeteo_requests==1.1.0
 openmeteo_sdk==1.9.0
 packaging==23.2
+pandas==2.2.0
 pathspec==0.12.1
 platformdirs==4.2.0
 pluggy==1.4.0

@@ -1,5 +1,10 @@
+from datetime import datetime, timedelta
+
 import numpy as np
+import openmeteo_requests
 import pandas as pd
+import requests_cache
+from retry_requests import retry
 
 
 def API_process(w_data):
@@ -37,7 +42,7 @@ def API_process(w_data):
     hourly_numeric[
         (hourly_numeric >= (q3 + 1.5 * IQR)) | (hourly_numeric <= (q1 - 1.5 * IQR))
     ] = np.nan
-    hourly_numeric.fillna(method="ffill", inplace=True)
+    hourly_numeric.ffill(inplace=True)
 
     hourly_numeric_dated = pd.concat(
         [hourly_dataframe_stage.iloc[:, 0], hourly_numeric], axis=1

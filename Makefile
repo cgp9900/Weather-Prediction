@@ -1,2 +1,2 @@
 test-cov:
-	pytest --cov-report html --cov=weather tests
+	pytest --cov-report html --cov=utils tests

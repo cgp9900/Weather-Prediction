@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from utils import my_train_split
+from weather import my_train_split
 
 
 def test_my_train_split_sorted_dates_X_train():

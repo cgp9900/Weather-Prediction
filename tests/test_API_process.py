@@ -5,7 +5,7 @@ import pytest
 import requests_cache
 from retry_requests import retry
 
-from utils import API_process
+from weather import API_process
 
 
 def test_API_process_number_of_nulls():

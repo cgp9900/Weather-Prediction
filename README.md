@@ -16,6 +16,10 @@ Step by Step Project Explanation:
 
      The hourly data is visualized to get a first look at the dynamics of the time series. 
 
+3. Box Cox Transformation
+
+     Applying Box Cox Transformation to ensure constant variance if needed. If the lambda value is between 0.8 and 1.2, no transformation is applied. 
+
 3. Statistical Diagnostic Steps
 
      The project aims to use both an auto Arima and visualization/statistical techniques to choose the best SARIMA model. ACF and PACF plots along with ADF Statistics are used to analyze the stationarity of the data, and seasonal and traditional differencing are introduced. 
@@ -32,7 +36,7 @@ Step by Step Project Explanation:
 
 6. Predictions and Forecasting
 
-     The data is split into the tradition train/test pieces and the model evaluated with RMSE and visualized with observed values and confidence intervals. A 7-day forecast is then made on the entire set of data and visualized with corresponding confidence intervals. 
+     The data is split into the tradition train/test pieces and the model evaluated with RMSE and visualized with observed values and confidence intervals, using an inverse Box Cox transform if required. A 7-day forecast is then made on the entire set of data and visualized with corresponding confidence intervals. 
 
      
 ## Usage

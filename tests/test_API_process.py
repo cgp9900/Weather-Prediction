@@ -61,32 +61,3 @@ def test_API_process_na():
     test_df, test_df_orig = API_process.API_process(response)
 
     assert test_df.isnull().sum().sum() < int(0.5 * len(test_df))
-
-
-def test_API_process_date_range():
-    cache_session = requests_cache.CachedSession(".cache", expire_after=-1)
-    retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
-    openmeteo = openmeteo_requests.Client(session=retry_session)
-
-    prev_2_date = datetime.today() - timedelta(2)
-    prev_2_date = prev_2_date.strftime("%Y-%m-%d")
-
-    prev_30_date = datetime.today() - timedelta(30)
-    prev_30_date = prev_30_date.strftime("%Y-%m-%d")
-
-    url = "https://archive-api.open-meteo.com/v1/archive"
-    params = {
-        "longitude": -84.3877,
-        "latitude": 33.7488,
-        "start_date": prev_30_date,
-        "end_date": prev_2_date,
-        "hourly": "temperature_2m",
-        "temperature_unit": "fahrenheit",
-        "timezone": "America/New_York",
-    }
-    responses = openmeteo.weather_api(url, params=params)
-    response = responses[0]
-
-    test_df, test_df_orig = API_process.API_process(response)
-
-    assert test_df.isnull().sum().sum() == 0

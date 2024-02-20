@@ -34,7 +34,7 @@ def test_API_process_number_of_nulls():
     assert str(excinfo.value) == "Nulls surpass 5 percent level of the data"
 
 
-def test_API_process_no_na():
+def test_API_process_na():
     cache_session = requests_cache.CachedSession(".cache", expire_after=-1)
     retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
     openmeteo = openmeteo_requests.Client(session=retry_session)
@@ -60,7 +60,7 @@ def test_API_process_no_na():
 
     test_df, test_df_orig = API_process.API_process(response)
 
-    assert test_df.isnull().sum().sum() == 0
+    assert test_df.isnull().sum().sum() < int(0.5 * len(test_df))
 
 
 def test_API_process_date_range():

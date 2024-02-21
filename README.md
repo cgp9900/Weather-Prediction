@@ -28,7 +28,7 @@ Step by Step Project Explanation:
 
 4. Modeling 
 
-     Each of the possible estimated models are trained and fitted, along with an auto Arima to determine if a better model can be found through more computationally heavy processes (non-stepwise). Surprisingly, one of the models chosen by the graphical estimates performs better than the auto Arima when judging by the AICc. 
+     Each of the possible estimated models are trained and fitted, along with an auto Arima to determine if a better model can be found through more computationally heavy processes. Surprisingly, one of the models chosen by the graphical estimates performs better than the auto Arima when judging by the AICc. 
 
 5. Residual Analysis
 
